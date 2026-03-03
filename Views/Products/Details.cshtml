@@ -1,4 +1,4 @@
-﻿@model MyFirstWebApp.Models.Product
+﻿    @model MyFirstWebApp.Models.Product
 
 @{
     ViewData["Title"] = "Details";
@@ -31,6 +31,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProductId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.ProductId" class="btn btn-warm btn-sm">Edit</a>
+    <a asp-action="Index" class="btn btn-warm btn-sm" style="background:#ffd9c7;color:#7a2d00;border-color:#e6b79a;">Back to List</a>
 </div>

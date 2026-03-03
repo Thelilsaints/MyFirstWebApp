@@ -20,3 +20,56 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Estilos de acciones cálidas - agregar al final de wwwroot/css/site.css */
+
+.action-buttons {
+  display: flex;
+  gap: .35rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Botón cálido principal (naranja) */
+.btn.btn-warm {
+  font-weight: 500;
+  color: #ffffff !important;
+  background-color: #ff7a45;
+  border: 1px solid #e65a00;
+  padding: .45rem .7rem;
+  border-radius: .25rem;
+  text-decoration: none;
+  transition: background-color .12s ease, border-color .12s ease, transform .06s ease;
+}
+
+.btn.btn-warm:hover,
+.btn.btn-warm:focus {
+  background-color: #ff6a2a;
+  border-color: #d65a00;
+  transform: translateY(-1px);
+}
+
+/* Variante para botones pequeños (en filas de tabla) */
+.btn.btn-warm.btn-sm {
+  padding: .25rem .5rem;
+  font-size: .85rem;
+  line-height: 1;
+}
+
+/* Variante para acción de eliminar (tono rojizo-cálido) */
+.btn.btn-warm-danger {
+  font-weight: 500;
+  color: #ffffff !important;
+  background-color: #d8543f;
+  border: 1px solid #c7442b;
+  padding: .45rem .7rem;
+  border-radius: .25rem;
+  text-decoration: none;
+}
+
+.btn.btn-warm-danger:hover,
+.btn.btn-warm-danger:focus {
+  background-color: #c7442b;
+  border-color: #b2331a;
+  transform: translateY(-1px);
+}
