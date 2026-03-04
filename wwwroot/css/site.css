@@ -22,7 +22,15 @@ body {
 }
 
 /* Estilos de acciones cálidas - agregar al final de wwwroot/css/site.css */
+:root {
+  --action-btn-height: 36px;
+  --action-btn-sm-height: 30px;
+  --action-btn-min-width: 78px;
+  --action-btn-sm-min-width: 64px;
+  --action-btn-radius: .25rem;
+}
 
+/* Contenedor de botones */
 .action-buttons {
   display: flex;
   gap: .35rem;
@@ -30,46 +38,177 @@ body {
   flex-wrap: wrap;
 }
 
-/* Botón cálido principal (naranja) */
-.btn.btn-warm {
+/* Base común para botones cálidos */
+.btn.btn-warm,
+.btn.btn-warm-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  line-height: 1;
+  height: var(--action-btn-height);
+  min-width: var(--action-btn-min-width);
+  padding: 0 .7rem;
+  border-radius: var(--action-btn-radius);
   font-weight: 500;
-  color: #ffffff !important;
-  background-color: #ff7a45;
-  border: 1px solid #e65a00;
-  padding: .45rem .7rem;
-  border-radius: .25rem;
   text-decoration: none;
   transition: background-color .12s ease, border-color .12s ease, transform .06s ease;
+  white-space: nowrap;
 }
 
+/* Variante normal (naranja cálido) */
+.btn.btn-warm {
+  color: #ffffff !important;
+  background-color: #ff7a45 !important;
+  border: 1px solid #e65a00 !important;
+}
 .btn.btn-warm:hover,
 .btn.btn-warm:focus {
-  background-color: #ff6a2a;
-  border-color: #d65a00;
+  background-color: #ff6a2a !important;
+  border-color: #d65a00 !important;
   transform: translateY(-1px);
 }
 
-/* Variante para botones pequeños (en filas de tabla) */
-.btn.btn-warm.btn-sm {
-  padding: .25rem .5rem;
-  font-size: .85rem;
-  line-height: 1;
-}
-
-/* Variante para acción de eliminar (tono rojizo-cálido) */
+/* Variante eliminar (rojizo-cálido) */
 .btn.btn-warm-danger {
-  font-weight: 500;
   color: #ffffff !important;
-  background-color: #d8543f;
-  border: 1px solid #c7442b;
-  padding: .45rem .7rem;
-  border-radius: .25rem;
-  text-decoration: none;
+  background-color: #d8543f !important;
+  border: 1px solid #c7442b !important;
 }
-
 .btn.btn-warm-danger:hover,
 .btn.btn-warm-danger:focus {
-  background-color: #c7442b;
-  border-color: #b2331a;
+  background-color: #c7442b !important;
+  border-color: #b2331a !important;
   transform: translateY(-1px);
+}
+
+/* Botones pequeños (fila de tabla) - misma proporción */
+.btn.btn-warm.btn-sm,
+.btn.btn-warm-danger.btn-sm {
+  height: var(--action-btn-sm-height);
+  min-width: var(--action-btn-sm-min-width);
+  padding: 0 .5rem;
+  font-size: .85rem;
+}
+
+/* Asegura que los enlaces actúen y se vean como botones */
+.action-buttons a.btn {
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Centrado del encuadre --- */
+.centered-frame {
+  max-width: 1100px; /* ajustar ancho deseado */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Asegura que la tabla ocupe el ancho del encuadre */
+.centered-frame .table {
+  width: 100%;
+}
+
+/* Alinea los botones de acción a la derecha dentro de la celda */
+.centered-frame .action-buttons {
+  justify-content: flex-end;
+}
+
+/* En pantallas pequeñas mantener los botones alineados al inicio */
+@media (max-width: 767.98px) {
+  .centered-frame {
+    padding: 0 .5rem;
+  }
+
+  .centered-frame .action-buttons {
+    justify-content: flex-start;
+    gap: .35rem;
+  }
+}
+
+/* --- Estilos para encabezado de gestión en HOME --- */
+.management-header {
+  margin: 2rem 0 1.2rem;
+  text-align: center;
+}
+
+.management-title {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(32px, 6.6vw, 64px);
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: #2b2b2b;
+  margin: 0 0 .8rem 0;
+  text-transform: uppercase;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.06);
+}
+
+/* Botones con estilo cálido (coherente con botones Edit) */
+.btn.btn-warm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff !important;
+  background-color: #ff7a45 !important;
+  border: 1px solid #e65a00 !important;
+  padding: 0 .9rem;
+  height: 40px;
+  min-width: 110px;
+  border-radius: .35rem;
+  font-weight: 600;
+  transition: background-color .12s ease, transform .06s ease;
+}
+.btn.btn-warm:hover,
+.btn.btn-warm:focus {
+  background-color: #ff6a2a !important;
+  transform: translateY(-1px);
+}
+
+
+/* Contenedor para los botones de navegación (HOME) */
+.management-buttons {
+  display: inline-flex;
+  gap: .6rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+/* Recuadro de bienvenida e invitación */
+.welcome-box {
+  max-width: 960px;
+  margin: .8rem auto 1.6rem auto;
+  padding: 1.2rem 1.4rem;
+  border-radius: .6rem;
+  background: linear-gradient(180deg, rgba(255,250,245,0.95), rgba(255,244,236,0.92));
+  border: 1px solid rgba(230,150,90,0.18);
+  box-shadow: 0 10px 30px rgba(30,30,30,0.05);
+  color: #333;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* Encabezado responsive */
+@media (max-width: 767.98px) {
+  .management-title {
+    font-size: clamp(22px, 9vw, 38px);
+    letter-spacing: 2px;
+  }
+  .btn.btn-warm,
+  .btn-warm-muted {
+    min-width: 88px;
+    height: 36px;
+    padding: 0 .6rem;
+    font-size: .95rem;
+  }
+  .management-buttons {
+    flex-wrap: wrap;
+    gap: .4rem;
+  }
+  .welcome-box {
+    padding: .9rem;
+    margin: .6rem auto;
+  }
 }
