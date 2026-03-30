@@ -22,4 +22,11 @@ public partial class Product
     [ForeignKey("CategoryId")]
     [InverseProperty("Products")]
     public virtual Category? Category { get; set; }
+
+    // Nueva FK y navegación hacia Supplier
+    public int? SupplierId { get; set; }
+
+    [ForeignKey("SupplierId")]
+    [InverseProperty("Products")]
+    public virtual Supplier? Supplier { get; set; }
 }
